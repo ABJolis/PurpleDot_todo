@@ -1,5 +1,5 @@
 const { Pool } = require("pg");
-require('dotenv').config();
+require("dotenv").config();
 
 const pool = new Pool({
   user: process.env.PGUSER,
@@ -10,7 +10,7 @@ const pool = new Pool({
 });
 
 pool.connect(() => {
-  console.log('database is connected!')
+  console.log("database is connected!")
 });
 
 module.exports = pool;

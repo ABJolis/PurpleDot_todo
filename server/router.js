@@ -4,9 +4,14 @@ const router = express.Router();
 
 router.post("/todos", async(req, res) => {
   try {
-    console.log("req.body: ", req.body);
+    const { description, isComplete } = req.body;
+    const newTodo = await pool.query(
+      "INSERT INTO todo (description, isComplete) VALUES ($1, FALSE)",
+    [description]
+    );
+    res.json(newTodo);
   } catch (error) {
-    console.error("error: ", error.message);
+    console.error('error: ', error.message)
   }
 })
 
