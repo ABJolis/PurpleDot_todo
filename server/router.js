@@ -21,6 +21,8 @@ router.post("/todos", async(req, res) => {
 
 //get a specific todo
 
+//filter todos by isComplete status
+
 //update a todo description
 
 //delete a todo
