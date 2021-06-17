@@ -27,9 +27,29 @@ router.get('/todos', async(req, res) => {
   }
 });
 
-//get all todos
-
 //get a specific todo
+router.get('/todos/:id', async(req, res) => {
+  try {
+    const { id } = req.params;
+    const todo = await pool.query("SELECT * FROM todo WHERE todo_id = $1", [id])
+    res.json(todo.rows[0]);
+    console.log('request parameters, request ID: ', req.params)
+  } catch (error) {
+    console.error('error: ', error.message);
+  }
+})
+
+//get only completed todos
+router.get('/todos/status', async(req, res) => {
+  try {
+    const { isComplete } = req.body;
+    const todo = await pool.query("SELECT * FROM todo WHERE isComplete = FALSE", [isComplete])
+    res.json(todo.rows[0]);
+  } catch (error) {
+    console.error('error: ', error.message);
+  }
+})
+
 
 //filter todos by isComplete status
 
