@@ -31,7 +31,7 @@ PGUSER=[your PostgreSQL username]
 PGPASSWORD=[your PostgreSQL password]
 PGHOST=localhost
 PGPORT=5432
-PGDATABASE=[name of database you're connected to in PostgreSQL]
+PGDATABASE=purpledottodo
 ```
 
 6. From inside the server directory, start the server:
