@@ -39,7 +39,7 @@ router.get('/todos/:id', async(req, res) => {
   }
 })
 
-//get only completed todos
+//filter todos by isComplete status
 router.get('/todos/status', async(req, res) => {
   try {
     const { isComplete } = req.body;
@@ -49,8 +49,6 @@ router.get('/todos/status', async(req, res) => {
     console.error('error: ', error.message);
   }
 })
-
-//filter todos by isComplete status
 
 //update a todo description
 router.put('/todos/:id', async(req, res)=> {
